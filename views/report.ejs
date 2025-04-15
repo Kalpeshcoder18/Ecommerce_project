@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Customer Orders Report</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container py-4">
+  <h2 class="mb-4"> Customer Orders Report</h2>
+
+  <% if (records.length > 0) { %>
+    <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Customer ID</th>
+          <th>Name</th>
+          <th>Order Date</th>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Price (₹)</th>
+          <th>Total (₹)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% records.forEach(record => { %>
+          <tr>
+            <td><%= record.CustomerID %></td>
+            <td><%= record.CustomerName %></td>
+            <td><%= record.OrderDate.toISOString().slice(0,10) %></td>
+            <td><%= record.ProductName %></td>
+            <td><%= record.Quantity %></td>
+            <td>₹<%= record.UnitPrice %></td>
+            <td>₹<%= record.TotalPrice %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <p>No orders found.</p>
+  <% } %>
+</body>
+</html>

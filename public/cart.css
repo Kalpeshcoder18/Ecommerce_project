@@ -1,0 +1,21 @@
+body {
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  .cart-container {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 700px;
+  }
+  table {
+    margin-top: 20px;
+  }
+  .btn-checkout {
+    margin-top: 20px;
+  }

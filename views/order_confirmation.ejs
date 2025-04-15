@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/order_confirmation.css">
+  <title>Order Confirmation</title>
+</head>
+<body>
+ <div class="confirmation-box">
+  <h1 class="text-success mb-4">Order Confirmation</h1>
+  <p class="fs-5">Thank you for your order, <%= order.CustomerName %>!</p>
+  <p>Your order ID is <%= order.OrderID %> and was placed on <%= order.OrderDate.toLocaleString('en-IN', {
+    timeZone: 'Asia/Kolkata',
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true
+  }); %>.</p>
+  <p>Total Amount: &#x20B9 <%= order.TotalAmount %></p>
+  <br>
+  <br>
+  <a href="/" class="btn btn-primary w-100">Back To Home</a>
+ </div>
+</body>
+</html>
