@@ -8,29 +8,41 @@
   <title>Shopping Cart</title>
 </head>
 <body>
+  
   <div class="cart-container text-center">
     <h1 class="mb-4 fw-bold">Your Cart</h1>
-  <table class="table table-bordered">
-    <thead class="table-light">
-      <tr>
-        <th>Product Name</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>Total</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% cart.forEach(item => { %>
+    <table class="table table-bordered">
+      <thead class="table-light">
         <tr>
-          <td><%= item.product_name %></td>
-          <td><%= item.quantity %></td>
-          <td><%= item.price %></td>
-          <td><%= item.total %></td>
+          <th>Product Name</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Total</th>
+          <th>Action</th>
         </tr>
-      <% }) %>
-    </tbody>
-  </table>
-  <a href="/order/new" class="btn btn-success btn-checkout">Proceed to Checkout</a>
+      </thead>
+      <tbody>
+        <% cart.forEach(item => { %>
+          <tr>
+            <td><%= item.product_name %></td>
+            <td><%= item.quantity %></td>
+            <td>₹<%= item.price %></td>
+            <td>₹<%= item.total %></td>
+            <td>
+              <form method="POST" action="/cart/delete" class="d-inline">
+                <input type="hidden" name="product_id" value="<%= item.product_id %>">
+                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-center gap-3 mt-4">
+      <a href="/products" class="btn btn-primary">Back</a>
+      <a href="/order/new" class="btn btn-success">Proceed to Checkout</a>
+    </div>
   </div>
+
 </body>
 </html>
